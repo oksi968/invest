@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="dist/theme/sky.css" id="theme">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
@@ -16,8 +16,90 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Слайд 1</section>
-				<section>Slide 2</section>
+				<section class="center"> <h1>Инвестиции</h1></section>
+				<section class="center"><h2>Определения</h2></section>
+				<section data-markdown="markdown/invest.md"></section>
+				<section data-markdown="markdown/trading.md"></section>
+				<section data-markdown="markdown/market.md"></section>
+				<section data-markdown="markdown/exchange.md"></section>
+				<section data-markdown="markdown/broker.md"></section>
+				<section data-markdown="markdown/security_paper.md"></section>
+				<section data-markdown="markdown/types.md"></section>
+				<section data-markdown="markdown/investment_portfolio.md"></section>
+				<section data-markdown="markdown/diversification.md"></section>
+				<section data-markdown="markdown/spread.md"></section>
+				<section data-markdown="markdown/bull_and_bear.md"></section>
+				<section data-markdown="markdown/bull.md"></section>
+				<section data-markdown="markdown/bear.md"></section>
+				<section data-markdown="markdown/flat.md"></section>
+				<section class="center"><h2>Доходность</h2></section>
+				<section>
+				<section data-markdown style="font-size: 75%">
+					<script type="text/template">
+						### Доходность по методу Дитца
+						- $R$ - доходность портфеля в процентах (rate of return)
+						- $S_e$ - стоимость портфеля на конец периода (end of the period)
+						- $S_b$ - стоимость портфеля на начало периода (begin of the period)
+						- $S_a$ - пополнение счета (account refill)
+						- $S_w$ - снятие со счета (withdrawal from the account)
+						- $W_t$ - временный весовой коэффициент, который применяет к каждому денежному потоку в портфеде (time)
+						- $T$ - длительность отчетного периода в днях, за которыз считается доходность 
+						- $t$ - количество дней, которое прошло  с момента начала инвестирования
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Доходность по методу Дитца
+						$$
+W_t = \dfrac{T-t}{T}
+$$
+
+$$
+R = \dfrac{S_e-S_b-\sum{S_a}+\sum{S_w}}{S_b+(\sum{S_aW_t})-(\sum{S_wW_t})}
+$$
+					</script>
+				
+				</section>
+			    </section>
+				<section data-fullscreen data-menu-title="Программа доходности по Дитцу">
+					<iframe data-src="html/ror.html"
+					class="stretch"></iframe>
+				</section>
+				<section class="center"><h2>Графики</h2></section>
+				<section class="center">
+					<h3>Линейный график</h3>
+					<p>Линейный график показывает только цену на момент закрытия торгов.</p>
+				</section>
+				<section data-fullscreen data-menu-title="Линейный график">
+					<iframe data-src="html/line.html"
+					class="stretch"></iframe>
+				</section>
+				<section data-markdown="markdown/candlestick.md"></section>
+				<section data-fullscreen data-menu-title ="Свечной график">
+					<iframe data-src="html/candlestick.html"
+					class="stretch"></iframe>
+				</section>
+
+				<section>
+					<h3>Мили котик</h3>
+					<img src="img/миликотик.jpg" alt="Мили котик" height="400px">
+				</section>
+
+				<section 
+				data-background-image="img/вертикальный котик.jpg"
+				data-background-size="contain"
+				data-menu-title="Кот">
+				</section>
+
+				<section 
+				data-background-image="img/миликотикнормкачества.jpg"
+				data-background-size="contain">
+				
+				</section>
+				<section class="center"
+				data-menu-title="Заключительный слайд">
+				<p>Спасибо за внимание!</p>
+				</section>
 			</div>
 		</div>
 
@@ -31,7 +113,25 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
+				center: false,
+				dependencies:[
+					{
+						src: 'plugin/katex/katex.js',
+						async: true,
+					},
+					{
+						src:'plugin/menu/menu.js'
+					},
+					{
+						src:'plugin/fullscreen/fullscreen.js'
+					},
+				],
+				menu:{
+					number: true,
+					markers: true,
+				},
+				slideNumber: true,
+				controls: true,
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
